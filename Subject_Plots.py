@@ -15,4 +15,16 @@ df = pd.DataFrame(csv, columns=['subject', 'shoe', 'speed', 'incline', 'step','c
 # Subset rows where shoe is Hoka, incline is level and speed is 0.5 m/s
 subset = df[(df['shoe'] == 0) & (df['incline'] == 0) & (df['speed'] == 0)]
 #subset = df[df['shoe'] == 0]
-print(subset.head())
+#print(subset.head())
+
+sns.boxplot(x="subject", y="comp_force", color='black', fill=False, data=subset)
+sns.stripplot(x="subject", y="comp_force", data=subset, color="blue", alpha=0.6, jitter=True)
+plt.grid(True)
+plt.show()
+
+"""""
+sns.boxplot(x="subject", y="comp_force", color='black', fill=False, data=subset)
+sns.swarmplot(x="subject", y="comp_force", data=subset, size=5, color="blue", alpha=0.6)
+plt.grid(True)
+plt.show()
+"""
